@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CHOURLCoder_Example' do
+  pod 'CHOURLCoder', :path => '../'
+
+  target 'CHOURLCoder_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
