@@ -1,0 +1,23 @@
+{
+  "name": "CHOURLCoder",
+  "version": "0.1.0",
+  "summary": "URL Encoding & Decoding",
+  "description": "URL Encoding & Decoding",
+  "homepage": "https://github.com/chojd/CHOURLCoder",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "chojd": "jingda.cao@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/chojd/CHOURLCoder.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Sources/*",
+  "public_header_files": "Sources/*.h"
+}

@@ -2,45 +2,41 @@
 //  CHOAppDelegate.m
 //  CHOURLCoder
 //
-//  Created by chojd on 12/18/2017.
-//  Copyright (c) 2017 chojd. All rights reserved.
+//  Created by JingdaCao on 12/18/2017.
+//  Copyright (c) 2017 chojd.com All rights reserved.
 //
 
 #import "CHOAppDelegate.h"
 
+#import <CHOURLCoder/CHOURLCoder.h>
+
 @implementation CHOAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    NSString *crash = @"%20%22";
+    NSString *enStr1 = [[CHOURLCoder sharedCoder] encodeQueryValue:crash];
+    NSString *deStr1 = [[CHOURLCoder sharedCoder] decodeQueryValue:enStr1];
+    
+    NSString *value = [[CHOURLCoder sharedCoder] encodeQueryValue:@"http://hello.com/data:2034?item=123👴🏻👮🏽"];
+    NSString *string = [NSString stringWithFormat:@"http://ofashion.com.cn:2000?%@=%@",@"value", value];
+    NSURL *anURL = [NSURL URLWithString:string];
+    NSURLComponents *component = [NSURLComponents componentsWithURL:anURL resolvingAgainstBaseURL:YES];
+    
+    NSLog(@"URLQueryAllowedCharacterSet");
+    [self printCharacterSet:[CHOURLCoder sharedCoder].unreservedCharacterSetInRFC3986];
+    
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)printCharacterSet:(NSCharacterSet *)charSet {
+    NSMutableString *string = [[NSMutableString alloc] initWithString:@"\n"];
+    for (int index = 0; index < 255; index++) {
+        if ([charSet characterIsMember:index]) {
+            [string appendFormat:@"%c", index];
+        }
+    }
+    NSLog(@"%@", string);
 }
 
 @end

@@ -1,0 +1,6 @@
+framework module CHOURLCoder {
+  umbrella header "CHOURLCoder-umbrella.h"
+
+  export *
+  module * { export * }
+}

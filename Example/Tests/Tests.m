@@ -2,8 +2,8 @@
 //  CHOURLCoderTests.m
 //  CHOURLCoderTests
 //
-//  Created by chojd on 12/18/2017.
-//  Copyright (c) 2017 chojd. All rights reserved.
+//  Created by JingdaCao on 12/18/2017.
+//  Copyright (c) 2017 chojd.com All rights reserved.
 //
 
 @import XCTest;

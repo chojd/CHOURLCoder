@@ -24,6 +24,22 @@ pod 'CHOURLCoder'
 
 chojd, jingda.cao@mfashion.com.cn
 
+
 ## License
 
 CHOURLCoder is available under the MIT license. See the LICENSE file for more info.
+
+## Introduce
+
+                                hierarchical part
+           ┌───────────────────┴─────────────────────┐
+        authority                                   path
+┌───────────────┴───────────────┐┌───┴────┐
+abc://username:password@example.com:123/path/data?key=value#fragid1
+└┬┘   └───────┬───────┘ └────┬────┘ └┬┘           └───┬───┘ └──┬──┘
+scheme  user information     host     port                              query   fragment
+
+urn:example:mammal:monotreme:echidna
+└┬┘ └──────────────┬───────────────┘
+scheme              path
+
